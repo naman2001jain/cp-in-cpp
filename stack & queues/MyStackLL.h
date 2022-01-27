@@ -12,8 +12,10 @@ class ListNode{
 class MyStackLL{
     public:
     ListNode* head;
+    int size;
     MyStackLL(){
         this->head = NULL;
+        this->size = 0;
     }
 
     int sizeOfStack(void);
@@ -35,23 +37,16 @@ int MyStackLL::pop(){
     ListNode* temp = head;
     head = head->next;
     delete temp;
+    size--;
     return (head)? head->val : -1;
 }
 
 int MyStackLL:: sizeOfStack(){
-    if(head==NULL){
-        return 0;
-    }
-    int size=0;
-    ListNode* currNode = head;
-    while(currNode){
-        size++;
-        currNode = currNode->next;
-    }
     return size;
 }
 
 void MyStackLL::push(int val){
+    size++;
     if(head==NULL){
         head = new ListNode(val);
         return;   
