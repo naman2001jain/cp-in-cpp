@@ -1,3 +1,5 @@
+//problem link https://leetcode.com/problems/minimum-number-of-swaps-to-make-the-string-balanced/
+
 #include<bits/stdc++.h>
 using namespace std;
 
