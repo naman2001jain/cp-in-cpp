@@ -1,0 +1,55 @@
+#include<iostream>
+#include<queue>
+using namespace std;
+
+class TreeNode{
+    public:
+    int val;
+    TreeNode* left, *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
+TreeNode* takeInput(){
+    cout<<"enter data"<<endl;
+    int temp;
+    cin>>temp;
+    TreeNode* root = new TreeNode(temp);
+    queue<TreeNode* > q;
+    q.push(root);
+    while(!q.empty()){
+        TreeNode* temp = q.front();
+        q.pop();
+        int leftchild, rightchild;
+        cout<<"enter left and right child of "<<temp->val<<endl;
+        cin>>leftchild>>rightchild;
+        if(leftchild!=-1){
+            TreeNode* leftnode = new TreeNode(leftchild);
+            q.push(leftnode);
+            temp->left = leftnode;
+        }
+        if(rightchild!=-1){
+            TreeNode* rightnode = new TreeNode(rightchild);
+            q.push(rightnode);
+            temp->right = rightnode;
+        }
+         
+    }
+    return root;
+}
+
+void printInorder(TreeNode* root){
+    if(root==NULL){
+        return;
+    }
+    printInorder(root->left);
+    cout<<root->val<<" ";
+    printInorder(root->right);
+}
+
+int main(){
+
+    TreeNode* root = takeInput();
+    printInorder(root);
+}
