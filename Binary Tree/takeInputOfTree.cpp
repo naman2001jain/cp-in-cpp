@@ -10,7 +10,7 @@ class TreeNode{
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
-
+//level wise input
 TreeNode* takeInput(){
     cout<<"enter data"<<endl;
     int temp;
@@ -38,13 +38,35 @@ TreeNode* takeInput(){
     }
     return root;
 }
+//recursive approach
+// TreeNode* takeInput(){
+//     int rootData;
+//     cout<<"enter data\n";
+//     cin>>rootData;
+//     if(rootData==-1){
+//         return NULL;
+//     }
+//     TreeNode* root = new TreeNode(rootData);
+//     TreeNode* left = takeInput();
+//     TreeNode* right = takeInput();
+//     root->left = left;
+//     root->right = right;
+//     return root;
+// }
 
 void printInorder(TreeNode* root){
     if(root==NULL){
         return;
     }
+    cout<<root->val<<":";
+    if(root->left!=NULL){
+        cout<<"L"<<root->left->val;
+    }
+    if(root->right!=NULL){
+        cout<<"R"<<root->right->val;
+    }
+    cout<<endl;
     printInorder(root->left);
-    cout<<root->val<<" ";
     printInorder(root->right);
 }
 
