@@ -14,7 +14,7 @@ public:
     void addEdge(int u, int v){
         adj[u].push_back(v);
         //for undirected graphs one extra line should be added as follows
-        adj[v].push_back(u);
+        // adj[v].push_back(u);
     }
 
     void DFSUtil(int u,vector<bool> &visited){
