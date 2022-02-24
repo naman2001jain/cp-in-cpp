@@ -30,8 +30,7 @@ TreeNode* constructTree(vector<int> inorder, int start, int end){
     }
     int maxind = findMax(inorder, start, end);
     TreeNode* root = new TreeNode(inorder[maxind]);
-    if (start == end)
-        return root;
+    
     root->left = constructTree(inorder, start, maxind-1);
     root->right = constructTree(inorder, maxind+1, end);
     return root;
