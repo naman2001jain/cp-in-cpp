@@ -12,6 +12,10 @@ class Graph{
         this->V = V;
         adj = new list<int>[V];
     }
+    void addEdge(int u, int v){
+        adj[u].push_back(v);
+    }
+
     void topologicalSort(vector<bool> &visited, vector<int> &result, int node){
         visited[node] = true;
         for(auto x: adj[node]){
